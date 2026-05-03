@@ -1,0 +1,128 @@
+{
+  "hostname": "runnervmeorf1",
+  "os": "Linux 6.17.0-1010-azure (x86_64)",
+  "timestamp": "2026-05-03 03:17:47 UTC",
+  "score": 72,
+  "grade": "B",
+  "summary": {
+    "CRITICAL": 1,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 1,
+    "INFO": 14
+  },
+  "findings": [
+    {
+      "severity": "INFO",
+      "category": "System",
+      "title": "Python runtime",
+      "description": "Python 3.12.3 detected.",
+      "recommendation": ""
+    },
+    {
+      "severity": "CRITICAL",
+      "category": "System",
+      "title": "Sensitive environment variables exposed",
+      "description": "Variables found in environment: GITHUB_TOKEN",
+      "recommendation": "Remove secrets from environment; use a secrets manager."
+    },
+    {
+      "severity": "LOW",
+      "category": "System",
+      "title": "/tmp is world-writable",
+      "description": "World-writable /tmp can allow symlink attacks.",
+      "recommendation": "Consider using a sticky-bit (/tmp perms 1777)."
+    },
+    {
+      "severity": "INFO",
+      "category": "Network",
+      "title": "No high-risk ports detected on localhost",
+      "description": "None of the commonly-abused ports are listening.",
+      "recommendation": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "FileIntegrity",
+      "title": "File integrity baseline captured (1 files)",
+      "description": "SHA-256 hashes recorded for monitored files.",
+      "recommendation": "Store this baseline securely and re-run to detect tampering."
+    },
+    {
+      "severity": "INFO",
+      "category": "ThreatDetection",
+      "title": "No source files found to scan",
+      "description": "No ('.py', '.js', '.ts', '.sh', '.php') files found under /home/runner/work/piyyy314/piyyy314.",
+      "recommendation": ""
+    },
+    {
+      "severity": "INFO",
+      "category": "Hardening",
+      "title": "Enable automatic security updates",
+      "description": "",
+      "recommendation": "Configure unattended-upgrades (Debian/Ubuntu) or dnf-automatic (RHEL/Fedora)."
+    },
+    {
+      "severity": "INFO",
+      "category": "Hardening",
+      "title": "Configure firewall",
+      "description": "",
+      "recommendation": "Use ufw (Ubuntu) or firewalld (RHEL): deny all inbound by default, allow only required ports."
+    },
+    {
+      "severity": "INFO",
+      "category": "Hardening",
+      "title": "Disable root SSH login",
+      "description": "",
+      "recommendation": "Set `PermitRootLogin no` in /etc/ssh/sshd_config."
+    },
+    {
+      "severity": "INFO",
+      "category": "Hardening",
+      "title": "Use SSH key authentication",
+      "description": "",
+      "recommendation": "Set `PasswordAuthentication no` in sshd_config after placing your public key."
+    },
+    {
+      "severity": "INFO",
+      "category": "Hardening",
+      "title": "Enable audit logging",
+      "description": "",
+      "recommendation": "Install and start auditd; configure rules for privilege escalation and file access."
+    },
+    {
+      "severity": "INFO",
+      "category": "Hardening",
+      "title": "Restrict SUID/SGID binaries",
+      "description": "",
+      "recommendation": "Run `find / -perm /6000 -type f` and remove SUID from binaries that don't need it."
+    },
+    {
+      "severity": "INFO",
+      "category": "Hardening",
+      "title": "Enable SELinux or AppArmor",
+      "description": "",
+      "recommendation": "Mandatory access control limits damage from compromised processes."
+    },
+    {
+      "severity": "INFO",
+      "category": "Hardening",
+      "title": "Disable unused services",
+      "description": "",
+      "recommendation": "Run `systemctl list-units --type=service` and disable anything not required."
+    },
+    {
+      "severity": "INFO",
+      "category": "Hardening",
+      "title": "Use Fail2Ban",
+      "description": "",
+      "recommendation": "Install Fail2Ban to auto-block IPs with repeated failed authentication attempts."
+    },
+    {
+      "severity": "INFO",
+      "category": "Hardening",
+      "title": "Keep kernel up-to-date",
+      "description": "",
+      "recommendation": "Kernel exploits are a common privilege escalation path; patch regularly."
+    }
+  ]
+}

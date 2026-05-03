@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fortress Aegis — Security Report</title>
+<style>
+  body { font-family: 'Segoe UI', sans-serif; background:#0d1117; color:#c9d1d9; margin:0; padding:20px; }
+  h1   { color:#58a6ff; } h2 { color:#79c0ff; border-bottom:1px solid #30363d; padding-bottom:6px; }
+  .meta { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:16px; margin-bottom:20px; }
+  .score-box { display:inline-block; background:#238636; border-radius:50%; width:80px; height:80px;
+                line-height:80px; text-align:center; font-size:28px; font-weight:bold; margin-right:20px; color:#fff; }
+  .stats { display:flex; gap:20px; flex-wrap:wrap; margin:20px 0; }
+  .stat  { background:#161b22; border:1px solid #30363d; border-radius:8px; padding:12px 20px; text-align:center; min-width:80px; }
+  .sev   { font-weight:bold; font-size:13px; }
+  table  { width:100%; border-collapse:collapse; font-size:14px; }
+  th,td  { padding:10px 12px; border:1px solid #30363d; text-align:left; vertical-align:top; }
+  th     { background:#161b22; color:#79c0ff; }
+  tr:hover { background:#161b22; }
+  .badge { display:inline-block; padding:2px 8px; border-radius:4px; color:#fff; font-size:12px; font-weight:bold; }
+  footer { margin-top:40px; color:#484f58; font-size:12px; }
+</style>
+</head>
+<body>
+<h1>🛡️ Fortress Aegis — Security Report</h1>
+<div class="meta">
+  <span class="score-box">B</span>
+  <strong>Host:</strong> runnervmeorf1<br>
+  <strong>OS:</strong> Linux 6.17.0-1010-azure (x86_64)<br>
+  <strong>Scanned:</strong> 2026-05-03 03:17:47 UTC<br>
+  <strong>Security Score:</strong> 72 / 100
+</div>
+<h2>Summary</h2>
+<div class="stats"><div class="stat"><span class="sev" style="color:#c0392b">CRITICAL</span><br><strong>1</strong></div><div class="stat"><span class="sev" style="color:#e74c3c">HIGH</span><br><strong>0</strong></div><div class="stat"><span class="sev" style="color:#e67e22">MEDIUM</span><br><strong>0</strong></div><div class="stat"><span class="sev" style="color:#f1c40f">LOW</span><br><strong>1</strong></div><div class="stat"><span class="sev" style="color:#2ecc71">INFO</span><br><strong>14</strong></div></div>
+<h2>Findings</h2>
+<table>
+<thead><tr><th>Severity</th><th>Category</th><th>Title</th><th>Description</th><th>Recommendation</th></tr></thead>
+<tbody>
+            <tr>
+              <td><span class="badge" style="background:#c0392b">CRITICAL</span></td>
+              <td>System</td>
+              <td><strong>Sensitive environment variables exposed</strong></td>
+              <td>Variables found in environment: GITHUB_TOKEN</td>
+              <td>Remove secrets from environment; use a secrets manager.</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#f1c40f">LOW</span></td>
+              <td>System</td>
+              <td><strong>/tmp is world-writable</strong></td>
+              <td>World-writable /tmp can allow symlink attacks.</td>
+              <td>Consider using a sticky-bit (/tmp perms 1777).</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>System</td>
+              <td><strong>Python runtime</strong></td>
+              <td>Python 3.12.3 detected.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>Network</td>
+              <td><strong>No high-risk ports detected on localhost</strong></td>
+              <td>None of the commonly-abused ports are listening.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>FileIntegrity</td>
+              <td><strong>File integrity baseline captured (1 files)</strong></td>
+              <td>SHA-256 hashes recorded for monitored files.</td>
+              <td>Store this baseline securely and re-run to detect tampering.</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>ThreatDetection</td>
+              <td><strong>No source files found to scan</strong></td>
+              <td>No ('.py', '.js', '.ts', '.sh', '.php') files found under /home/runner/work/piyyy314/piyyy314.</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>Hardening</td>
+              <td><strong>Enable automatic security updates</strong></td>
+              <td></td>
+              <td>Configure unattended-upgrades (Debian/Ubuntu) or dnf-automatic (RHEL/Fedora).</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>Hardening</td>
+              <td><strong>Configure firewall</strong></td>
+              <td></td>
+              <td>Use ufw (Ubuntu) or firewalld (RHEL): deny all inbound by default, allow only required ports.</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>Hardening</td>
+              <td><strong>Disable root SSH login</strong></td>
+              <td></td>
+              <td>Set `PermitRootLogin no` in /etc/ssh/sshd_config.</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>Hardening</td>
+              <td><strong>Use SSH key authentication</strong></td>
+              <td></td>
+              <td>Set `PasswordAuthentication no` in sshd_config after placing your public key.</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>Hardening</td>
+              <td><strong>Enable audit logging</strong></td>
+              <td></td>
+              <td>Install and start auditd; configure rules for privilege escalation and file access.</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>Hardening</td>
+              <td><strong>Restrict SUID/SGID binaries</strong></td>
+              <td></td>
+              <td>Run `find / -perm /6000 -type f` and remove SUID from binaries that don't need it.</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>Hardening</td>
+              <td><strong>Enable SELinux or AppArmor</strong></td>
+              <td></td>
+              <td>Mandatory access control limits damage from compromised processes.</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>Hardening</td>
+              <td><strong>Disable unused services</strong></td>
+              <td></td>
+              <td>Run `systemctl list-units --type=service` and disable anything not required.</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>Hardening</td>
+              <td><strong>Use Fail2Ban</strong></td>
+              <td></td>
+              <td>Install Fail2Ban to auto-block IPs with repeated failed authentication attempts.</td>
+            </tr>
+            <tr>
+              <td><span class="badge" style="background:#2ecc71">INFO</span></td>
+              <td>Hardening</td>
+              <td><strong>Keep kernel up-to-date</strong></td>
+              <td></td>
+              <td>Kernel exploits are a common privilege escalation path; patch regularly.</td>
+            </tr></tbody>
+</table>
+<footer>Generated by Fortress Aegis Complete — @shiatoali — 2026-05-03 03:17:47 UTC</footer>
+</body>
+</html>
