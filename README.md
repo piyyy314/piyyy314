@@ -1,4 +1,3 @@
-@@ -1,12 +1 @@
 - 👋 Hi, I’m @shiatoali
 - 👀 I’m interested in learning about developing and coding softwares
 - 🌱 I’m currently learning cybersecurity and computer network engineering 
