@@ -1,4 +1,4 @@
-# Mohamad Matar (Shiatoali)
+# Mohamad (Shiatoali)
 
 ## About
 
